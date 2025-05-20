@@ -1,0 +1,12 @@
+{
+  "name": "gptbagunca",
+  "version": "1.0.0",
+  "main": "organizador.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "type": "commonjs",
+  "license": "ISC",
+  "description": ""
+}
