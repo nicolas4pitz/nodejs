@@ -6,7 +6,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "type": "commonjs",
+  "type": "module",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "globby": "^14.1.0"
+  }
 }
