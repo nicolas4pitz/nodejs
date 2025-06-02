@@ -26,21 +26,39 @@ app.get("/", (req, res) => {
 })
 
 export const loginCaller = app.post("/login", (req, res) => {
-  const data = req.body
+  const {username, password} = req.body
   
-  const token = generateAcessToken(data)
-  for(let i = 0; i < obj.length; i++){
-    if (token == generateAcessToken(obj[0])){
-    res.end.json({acessToken: token})
+  const user = obj.find(u => u.username === username && u.password === password)
+
+  if(user){
+    const token = generateAcessToken({username: user.username})
+    return res.json({acessToken: token})
+  } else{
+    return res.status(401).json({error: "Usuario Invalido"})
   }
-  res.send("Erro")
   }
-  
-  
+)
+
+const routeProfile = app.get("/profile", authenticateToken, (req, res) =>{
+ res.json(obj.filter(i => i.username === req.username))
 })
+
 
 function generateAcessToken(user){
   return jwt.sign(user, acessToken)
+}
+
+function authenticateToken(req, res, next){
+  const authHeader = req.headers['authorization']
+  const token = authHeader && authHeader.split(' ')[1]
+
+  if(token === null) return res.sendStatuis
+
+  jwt.verify(token, acessToken, (err, user) => {
+    if(err) return res.sendStatus(403)
+    req.username = user
+    next()
+  })
 }
 
 
