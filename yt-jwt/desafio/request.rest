@@ -10,4 +10,4 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inh4eCIsImlhdCI6MTc0ODg2ODUyM30.tftFyZucoA6bP72p_lnnBuwwTSOtizl5uKDkUyy64rk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inh4eCIsImlhdCI6MTc0ODk2OTQ3OX0.M4v_TG_H8KjjhU8yQT_ASjJN0CFbqEfCafa_YqZBfHE

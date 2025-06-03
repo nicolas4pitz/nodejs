@@ -20,11 +20,6 @@ const obj = [{
   password: "zzz"
 }]
 
-app.get("/", (req, res) => {
-  console.log("3000")
-  res.send("Porta")
-})
-
 export const loginCaller = app.post("/login", (req, res) => {
   const {username, password} = req.body
   
@@ -40,7 +35,7 @@ export const loginCaller = app.post("/login", (req, res) => {
 )
 
 const routeProfile = app.get("/profile", authenticateToken, (req, res) =>{
- res.json(obj.filter(i => i.username === req.username))
+  res.json(obj.filter(i => i.username === req.username))
 })
 
 
@@ -56,7 +51,7 @@ function authenticateToken(req, res, next){
 
   jwt.verify(token, acessToken, (err, user) => {
     if(err) return res.sendStatus(403)
-    req.username = user
+    req.username = user.username
     next()
   })
 }
