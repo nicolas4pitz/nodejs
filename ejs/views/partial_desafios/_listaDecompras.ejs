@@ -1,0 +1,11 @@
+<ul class="list-disc pl-6">
+  <% for(let i = 0; i < listaDeCompras.length; i++) { %>
+    <li class="mb-2 p-2 bg-gray-100 rounded">
+      <span class="font-bold"><%= listaDeCompras[i].nome %></span> — 
+      <span class="text-gray-600">Quantidade: <%= listaDeCompras[i].quantidade %></span> — 
+      <span class="<%= listaDeCompras[i].comprado ? 'text-green-600' : 'text-red-600' %>">
+        <%= listaDeCompras[i].comprado ? 'Comprado' : 'Pendente' %>
+      </span>
+    </li>
+  <% } %>
+</ul>
