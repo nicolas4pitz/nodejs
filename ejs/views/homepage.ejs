@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../views/partials/head'); %>
+    <title>
+        <%=message%> Page
+    </title>
+</head>
+ 
+<header>
+  <%- include('../views/partials/header'); %>
+</header>
+<body>
+  
+<main>
+  <div class="jumbotron">
+    <h1>This is great</h1>
+    <h1><%=message%></h1>
+    <p>Welcome to templating using EJS</p>
+  </div>
+</main>
+ 
+</body>
+<footer>
+  <%- include('../views/partials/footer'); %>
+</footer>
+
+</html>
