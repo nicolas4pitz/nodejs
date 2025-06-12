@@ -1,0 +1,17 @@
+{
+  "name": "desafios",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "eslint": "^9.28.0",
+    "jest": "^30.0.0"
+  }
+}
