@@ -13,5 +13,8 @@
   "dependencies": {
     "eslint": "^9.28.0",
     "jest": "^30.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14"
   }
 }

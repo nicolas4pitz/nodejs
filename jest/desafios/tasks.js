@@ -1,6 +1,6 @@
 
 
-const lista_de_tarefas = [
+let lista_de_tarefas = [
   {
     id: 1,
     description: "Fazer Exercício",
@@ -24,4 +24,8 @@ function adicionarTarefa(description){
   return (obj)
 }
 
-module.exports = { adicionarTarefa };
+function limparTarefa(){
+  lista_de_tarefas = []
+}
+
+module.exports = { adicionarTarefa, limparTarefa };
