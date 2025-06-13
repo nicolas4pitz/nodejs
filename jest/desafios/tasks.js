@@ -24,8 +24,30 @@ function adicionarTarefa(description){
   return (obj)
 }
 
+function listarTarefas(){
+  let copy = lista_de_tarefas
+  return copy
+}
+
 function limparTarefa(){
   lista_de_tarefas = []
 }
 
-module.exports = { adicionarTarefa, limparTarefa };
+function marcarTarefaConcluida(id){
+  lista_de_tarefas.forEach( (param) => {
+    if(param.id === id){
+      param.checked = true
+      return true
+    }
+  })
+  return false
+}
+
+function removerTarefa(id){
+  const tamanhoAntes = lista_de_tarefas.length;
+  lista_de_tarefas = lista_de_tarefas.filter(tarefa => tarefa.id !== id);
+  return lista_de_tarefas.length < tamanhoAntes;
+}
+
+
+module.exports = { adicionarTarefa, limparTarefa, marcarTarefaConcluida, removerTarefa, listarTarefas };
