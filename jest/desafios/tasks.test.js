@@ -92,8 +92,6 @@ describe("removerTarefa", () => {
     const rmTarefa1 = removerTarefa(tarefa1.id)
     const lista = listarTarefas()
     expect(lista).toEqual([])
-    
-    
   })
 
   it("Deve retornar true se a tarefa foi removida com sucesso", () => { 
@@ -107,6 +105,16 @@ describe("removerTarefa", () => {
     const rmtf = removerTarefa(tarefa1.id)
     const rmTarefa1 = removerTarefa(tarefa1.id)
     expect(rmTarefa1).toBeFalsy()
+  })
+
+  it("Deve verificar se foi excluido somente a tarefa selecionada", ()=> {
+    const tarefa1 = adicionarTarefa("tarefa1")
+    const tarefa2 = adicionarTarefa("tarefa2")
+    const tarefa3 = adicionarTarefa("tarefa3")
+    const rmtf = removerTarefa(tarefa1.id)
+    const lista = listarTarefas()
+    expect(lista).toContain(tarefa2, tarefa3)
+    expect(lista).not.toContain(tarefa1)
   })
 
 })
