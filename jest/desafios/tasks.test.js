@@ -90,9 +90,23 @@ describe("removerTarefa", () => {
   it("Deve remover uma tarefa existente", () => {
     const tarefa1 = adicionarTarefa("tarefa1")
     const rmTarefa1 = removerTarefa(tarefa1.id)
-    console.log(tarefa1)
-    expect(rmTarefa1).toBe(true)
+    const lista = listarTarefas()
+    expect(lista).toEqual([])
     
+    
+  })
+
+  it("Deve retornar true se a tarefa foi removida com sucesso", () => { 
+    const tarefa1 = adicionarTarefa("tarefa1")
+    const rmTarefa1 = removerTarefa(tarefa1.id)
+    expect(rmTarefa1).toBeTruthy()
+  })
+
+  it("Deve retornar false se o ID não for encontrado", () => { 
+    const tarefa1 = adicionarTarefa("tarefa1")
+    const rmtf = removerTarefa(tarefa1.id)
+    const rmTarefa1 = removerTarefa(tarefa1.id)
+    expect(rmTarefa1).toBeFalsy()
   })
 
 })
