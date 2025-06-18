@@ -20,7 +20,7 @@ app.set("views", path.join(import.meta.dirname, "views"))
 app.set("view engine", "ejs")
 
 app.get("/", (req, res) => {
-  res.render("homepage")
+  res.render("homepage", { produtos })
 })
 
 app.listen(PORT, () => {
