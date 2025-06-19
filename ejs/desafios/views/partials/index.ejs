@@ -1,7 +1,14 @@
 <section>
-  <select name="filter" id="filter">
+  <select name="filter" id="filterEl">
     <option value="todos">Todos</option>
     <option value="eletronico">Eletronico</option>
     <option value="alimentos">Alimentos</option>
   </select>
 </section>
+
+<script>
+  document.getElementById('filterEl').addEventListener('change', function() {
+    const filtro = this.value;
+    window.location.href = `/?filter=${filtro}`;
+  });
+</script>

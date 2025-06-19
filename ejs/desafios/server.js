@@ -11,6 +11,13 @@ const produtos = [{
   categoria: "Alimento",
   imagemUrl: "placeholder.com",
   emEstoque: true
+}, {
+  id: 2,
+  nome: "Macarrão",
+  preco: 10,
+  categoria: "Alimento",
+  imagemUrl: "placeholder.com",
+  emEstoque: true
 }]
 
 
