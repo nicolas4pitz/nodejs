@@ -1,0 +1,5 @@
+npm i drizzle-orm postgres pg
+
+npm i -D drizzle-kit tsx @types/pg
+
+npm i dotenv
