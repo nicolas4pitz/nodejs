@@ -1,0 +1,24 @@
+{
+  "name": "estudos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "generatedb": "npx drizzle-kit generate",
+    "db:migrate": "tsx src/drizzle/migrate.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.44.2",
+    "pg": "^8.16.1",
+    "postgres": "^3.4.7"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.4",
+    "drizzle-kit": "^0.31.1",
+    "tsx": "^4.20.3"
+  }
+}

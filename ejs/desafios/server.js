@@ -11,6 +11,13 @@ const produtos = [{
   categoria: "Alimento",
   imagemUrl: "placeholder.com",
   emEstoque: true
+}, {
+  id: 2,
+  nome: "Macarrão",
+  preco: 10,
+  categoria: "Alimento",
+  imagemUrl: "placeholder.com",
+  emEstoque: true
 }]
 
 
@@ -20,7 +27,7 @@ app.set("views", path.join(import.meta.dirname, "views"))
 app.set("view engine", "ejs")
 
 app.get("/", (req, res) => {
-  res.render("homepage")
+  res.render("homepage", { produtos })
 })
 
 app.listen(PORT, () => {

@@ -1,0 +1,14 @@
+<ul class="list-disc pl-6">
+  <% for(let i = 0; i < produtos.length; i++) { %>
+    <li class="mb-2 p-2 bg-gray-100 rounded-xl">
+      <span>ID: <%= produtos[i].id %></span> --
+      <span class="font-bold"><%= produtos[i].nome %></span> --
+      <span class="text-gray-600">R$ <%= produtos[i].preco %></span> --
+      <span><%= produtos[i].categoria %></span> --
+      <span><%= produtos[i].imagemUrl %></span> --
+      <span class="<%= produtos[i].emEstoque ? 'text-green-600' : 'text-red-600' %>">
+        <%= produtos[i].emEstoque ? "Em Estoque" : "Sem Estoque" %>
+      </span>
+    </li>
+  <% } %>
+</ul>
