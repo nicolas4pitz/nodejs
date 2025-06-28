@@ -3,6 +3,7 @@
   import ListaDeTarefas from "./lib/ListaDeTarefas.svelte";
   import Requisicao from "./lib/Requisicao.svelte";
   import ProductCard from "./lib/ProductCard.svelte";
+  import FormsCadastroProdutos from "./lib/FormsCadastroProdutos.svelte";
 
   interface Product {
     id: number;
@@ -30,21 +31,27 @@
 
 </script>
 
-<main>
-  {#each products as product}
-    <ProductCard product={product} on:addToCart={handleAddToCart}/>
-  {/each}
-  
-  <div class="cart">
-    <h3>Carrinho ({cart.length} itens)</h3>
-    {#each cart as item}
-      <p>{item.name}</p>
+<main >
+  <FormsCadastroProdutos/>
+
+
+  <section id="product-card">
+    {#each products as product}
+      <ProductCard product={product} on:addToCart={handleAddToCart}/>
     {/each}
-  </div>
+
+    <div class="cart">
+      <h3>Carrinho ({cart.length} itens)</h3>
+      {#each cart as item}
+        <p>{item.name}</p>
+      {/each}
+    </div>
+  </section>
+
 </main>
 
 <style>
-  main{
+  #product-card{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
