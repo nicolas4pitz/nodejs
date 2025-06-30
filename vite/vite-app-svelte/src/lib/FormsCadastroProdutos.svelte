@@ -1,18 +1,36 @@
 <script lang="ts">
 
+let name = $state("")
+let price = $state("")
+let image = $state("")
+let cehck = $state(false)
+
+
+// $effect(() => { 
+//     (() => {
+//         name.trim()
+//     }, name)
+// })
+
 </script>
 
 
 <label for="productname">Product Name:</label>
-<input type="text" name="productname" id="productname"> <br>
-<label for="productprice">Product Price:</label>
-<input type="number" name="productprice" id="productprice"> <br>
-<label for="productimage">Product Image:</label>
-<input type="text" name="productimage" id="productimage"> <br>
-<label for="productstock"></label>
-<input type="checkbox" name="productstock" id="productstock"> <br>
+<input type="text" name="productname" id="productname" bind:value={name}> <br>
+<p>{name}</p>
 
-<button>Cadastrar Produto</button>
+<label for="productprice">Product Price:</label>
+<input type="number" name="productprice" id="productprice" bind:value={price}> <br>ss
+<p>{price}</p>
+
+<label for="productimage">Product Image:</label>
+<input type="text" name="productimage" id="productimage" bind:value={image}> <br>
+<p>{image}</p>
+
+<label for="productstock"></label>
+<input type="checkbox" name="productstock" id="productstock" bind:checked={cehck}> <br>
+
+<button disabled={name === "" || price === "" || image === ""}>Cadastrar Produto</button>
 <style>
 
 
