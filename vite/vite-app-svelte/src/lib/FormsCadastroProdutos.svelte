@@ -6,11 +6,12 @@ let image = $state("")
 let cehck = $state(false)
 
 
-// $effect(() => { 
-//     (() => {
-//         name.trim()
-//     }, name)
-// })
+$effect(() => {
+    name = name.trim()
+    image = image.trim()
+    console.log(name)
+})
+
 
 </script>
 
@@ -20,7 +21,7 @@ let cehck = $state(false)
 <p>{name}</p>
 
 <label for="productprice">Product Price:</label>
-<input type="number" name="productprice" id="productprice" bind:value={price}> <br>ss
+<input type="number" name="productprice" id="productprice" bind:value={price}> <br>
 <p>{price}</p>
 
 <label for="productimage">Product Image:</label>
@@ -30,7 +31,7 @@ let cehck = $state(false)
 <label for="productstock"></label>
 <input type="checkbox" name="productstock" id="productstock" bind:checked={cehck}> <br>
 
-<button disabled={name === "" || price === "" || image === ""}>Cadastrar Produto</button>
+<button disabled={name === ""|| price === "" || image === ""}>Cadastrar Produto</button>
 <style>
 
 
