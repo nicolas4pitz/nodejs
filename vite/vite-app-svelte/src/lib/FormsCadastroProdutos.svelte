@@ -1,15 +1,30 @@
 <script lang="ts">
 
 let name = $state("")
-let price = $state("")
+let price = $state()
 let image = $state("")
-let cehck = $state(false)
+let check = $state(false)
 
+let finalname = $state("")
+let finalprice = $state("")
+let finalimage = $state("")
+let finalcheck = $state(false)
+
+const error = {
+  name: "O nome está errado",
+  price: "O preço está errado"
+}
+
+let verificar = () => {
+  if(name.trim() === ""){
+    error.name
+  }
+}
 
 $effect(() => {
-    name = name.trim()
-    image = image.trim()
-    console.log(name)
+    finalname = name.trim()
+    finalimage = image.trim()
+    console.log(finalname)
 })
 
 
@@ -18,7 +33,9 @@ $effect(() => {
 
 <label for="productname">Product Name:</label>
 <input type="text" name="productname" id="productname" bind:value={name}> <br>
-<p>{name}</p>
+{#if name.trim() === ""}
+  <p>{error.name}</p>
+{/if}
 
 <label for="productprice">Product Price:</label>
 <input type="number" name="productprice" id="productprice" bind:value={price}> <br>
@@ -29,9 +46,9 @@ $effect(() => {
 <p>{image}</p>
 
 <label for="productstock"></label>
-<input type="checkbox" name="productstock" id="productstock" bind:checked={cehck}> <br>
+<input type="checkbox" name="productstock" id="productstock" bind:checked={check}> <br>
 
-<button disabled={name === ""|| price === "" || image === ""}>Cadastrar Produto</button>
+<button onclick={verificar}>Cadastrar Produto</button>
 <style>
 
 
