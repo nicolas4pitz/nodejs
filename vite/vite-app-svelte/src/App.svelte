@@ -32,7 +32,7 @@
 </script>
 
 <main >
-  <FormsCadastroProdutos/>
+  <FormsCadastroProdutos bind:products={products}/>
 
 
   <section id="product-card">

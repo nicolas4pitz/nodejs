@@ -1,7 +1,7 @@
 <script lang="ts">
 
 let name = $state("")
-let price = $state()
+let price = $state(0)
 let image = $state("")
 let check = $state(false)
 
@@ -9,6 +9,34 @@ let isCorrectName = $state(false)
 let isCorrectImage = $state(false)
 let isCorrectPrice = $state(false)
 
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  imageUrl: string;
+  inStock: boolean;
+}
+
+let { products = $bindable() }: { products: Product[] } = $props();
+
+let gerarId = () => {
+  let obj = {
+    id: products.length,
+    name: `${name}`,
+    price: price,
+    imageUrl: image,
+    inStock: check
+  }
+
+  products = [...products, obj]
+  
+  name = ""
+  price = 0
+  image = ""
+  check = false
+  
+  console.log(products)
+}
 
 let verificar = () => {
   if(name.trim() === ""){
@@ -23,6 +51,15 @@ let verificar = () => {
     isCorrectImage = false
   }
 
+  if(price === 0){
+    isCorrectPrice = true
+  } else{
+    isCorrectPrice = false
+  }
+
+  if(!isCorrectName && !isCorrectPrice && !isCorrectImage){
+    gerarId()
+  }
 }
 
 </script>
@@ -44,7 +81,6 @@ let verificar = () => {
 
 <label for="productimage">Product Image:</label>
 <input type="text" name="productimage" id="productimage" bind:value={image}> <br>
-<p>{image}</p>
 {#if isCorrectImage}
   <p style="color: red;">Informações de Imagens são obrigatórias</p>
 {/if}
