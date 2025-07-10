@@ -5,6 +5,7 @@
     // let errorMessage = data.error;
 
     import { onMount } from 'svelte';
+    import { fade, slide } from 'svelte/transition'
 
     interface Post {
       id: number;
@@ -47,7 +48,7 @@
           <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {#each post as postItem (postItem.id)}
                   <li class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow text-center content-center">
-                      <a href={`/post/${postItem.id}`} class="block hover:text-blue-600">
+                      <a href={`/post/${postItem.id}`} class="block hover:text-blue-600" transition:slide>
                           <h3 class="text-lg font-semibold mb-2 line-clamp-2">{postItem.title}</h3>
                           <p class="text-gray-600 text-sm">Post #{postItem.id}</p>
                       </a>

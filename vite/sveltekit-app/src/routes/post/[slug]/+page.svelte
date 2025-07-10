@@ -4,6 +4,9 @@
     //QUANDO USA O PAGE SERVER.TS ELE CHEGA USANDO O PAGEDATA TYPE, USANDO OS DADOS VIA PROPS
     let { data }: { data: PageData } = $props();
 
+    //adiciona transição com a diretiva transition:fade ou slide 
+    import { fade, slide } from 'svelte/transition'
+
     interface Post {
       userId: number;
       id: number;
@@ -17,7 +20,7 @@
 </script>
 
 
-<main class="max-w-4xl w-full flex flex-col mx-auto py-4">
+<main class="max-w-4xl w-full flex flex-col mx-auto py-4" transition:fade>
   <header class="mb-8">
     <h1 class="font-bold text-gray-500 text-4xl mb-4">{post?.title}</h1>
     <div class="flex items-center text-sm text-gray-500">
