@@ -25,7 +25,6 @@
       }
       
       post = await response.json();
-      console.log(post)
       
     } catch (err: any) {
       console.error("Erro ao carregar os posts:", err);
