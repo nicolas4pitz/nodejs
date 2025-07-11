@@ -37,9 +37,9 @@
 
 </script>
 
-<h1 class="text-center text-3xl font-bold mb-8">Posts</h1>
 
-<div class="flex justify-center">
+
+<div class="flex justify-center mt-8">
   <div class="max-w-6xl w-full px-4">
     {#if error}
           <p style="color: red;">{error}</p>

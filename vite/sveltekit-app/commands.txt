@@ -1,0 +1,3 @@
+deno npm:sv create sveltekit-app
+ou
+npx sv create sveltekit-app
