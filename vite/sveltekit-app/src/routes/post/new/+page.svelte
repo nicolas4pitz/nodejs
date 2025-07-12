@@ -7,14 +7,14 @@
     let title = $state('');
     let corpo = $state('');
 
-    
+    let confirEl = document.createElement("span")
+    confirEl.textContent = "Criado";
+    confirEl.setAttribute("class", "bg-lime-500 w-16 p-1 rounded-2xl m-auto text-white transition-shadow mt-4 mb-4")
+
 
     function submitForms(){
       console.log(`answered question ${title} (${corpo})`)
-      let confirEl = document.createElement("span")
-      confirEl.textContent = "Criado";
-      confirEl.setAttribute("class", "bg-lime-500 w-16 p-1 rounded-2xl m-auto text-white transition-shadow mt-4 mb-4")
-
+      
       let forms = document.getElementById("forms")
 
 
@@ -30,8 +30,8 @@
     <input bind:value={title} type="text" id="title" class="bg-gray-500 p-1">
     <label for="body">Body</label>
     <textarea bind:value={corpo} id="corpo" class="w-2xs h-60 bg-gray-500 mb-2 text-white rounded-ss-sm p-1"></textarea>
-    <button disabled={!corpo || !title} type="submit" class="bg-violet-500 text-white p-1 hover:bg-zinc-500 hover:cursor-pointer">
-      Submit
+    <button disabled={(!corpo) || corpo.length < 5 || !title} type="submit" class="bg-violet-500 text-white p-1 hover:bg-zinc-500 hover:cursor-pointer">
+      Publicar Post
     </button>
   </form>
 </section>
