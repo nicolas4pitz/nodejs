@@ -1,6 +1,8 @@
 <script lang="ts">
     import type { PageData } from './$types';
 
+    // Dados recebidos da form action (se houver erro ou valores antigos)
+
     let { data }: { data: PageData } = $props();
     import { fade, slide } from 'svelte/transition'
 
@@ -43,12 +45,12 @@
 <section class="flex justify-center">
   <form class="max-w-6xl justify-center w-full bg-gray-200 grid gap-4 mt-3 pt-3 pb-3" id="forms" onsubmit={submitForms} transition:fade>
     <label for="title">Title</label>
-    <input bind:value={title} type="text" id="title" class="bg-gray-500 p-1" onblur={validationTitle}>
+    <input bind:value={title} type="text" id="title" class="bg-gray-500 p-1" placeholder="Digite o Titulo do Post" onblur={validationTitle}>
     {#if titleStatus}
       <span class="text-red-500 italic m-auto w-full">Titulo tem que ter mais que 5 caracteres</span>
     {/if}
-    <label for="body">Body</label>
-    <textarea bind:value={corpo} onblur={validationBody} id="corpo" class="w-2xs h-60 bg-gray-500 mb-2 text-white rounded-ss-sm p-1"></textarea>
+    <label for="corpo">Body</label>
+    <textarea bind:value={corpo} onblur={validationBody} placeholder="Digite o conteudo do post" id="corpo" class="w-2xs h-60 bg-gray-500 mb-2 text-white rounded-ss-sm p-1"></textarea>
     {#if corpoStatus}
       <span class="text-red-500 italic m-auto w-full">Corpo tem que ter mais que 20 caracteres</span>
     {/if}
