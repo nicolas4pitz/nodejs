@@ -2,38 +2,38 @@
     import type { PageData } from './$types';
 
     let { data }: { data: PageData } = $props();
+    import { fade, slide } from 'svelte/transition'
 
 
     let title = $state('');
     let corpo = $state('');
 
-    let confirEl = document.createElement("span")
-    let titleConfirmEl = document.createElement("span")
-    let bodyConfirmEl = document.createElement("span")
-
-    confirEl.textContent = "Criado";
-
-    confirEl.setAttribute("class", "bg-lime-500 w-16 p-1 rounded-2xl m-auto text-white transition-shadow mt-4 mb-4")
-    titleConfirmEl.setAttribute("class", "text-red-500 w-16 italic")
-    let forms = document.getElementById("forms")
+    let titleStatus = $state(false)
+    let corpoStatus = $state(false)
+    let formsStatus = $state(false)
 
     function submitForms(){
-      console.log(`answered question ${title} (${corpo})`)
-      
-      
 
-
-      forms?.appendChild(confirEl)
+      formsStatus = true
 
       setTimeout(() => {
-        confirEl.remove();
+        formsStatus = false
       }, 3000);
     }
 
     function validationTitle() {
-      if(title.length > 5){
-        titleConfirmEl.textContent = "titulo errado"
-        forms?.appendChild(titleConfirmEl)
+      if(title.length <= 5 || title.length == null){
+        titleStatus = true
+      }else{
+        titleStatus = false
+      }
+    }
+
+    function validationBody(){
+      if(corpo.length <= 20 || corpo.length == null){
+        corpoStatus = true
+      }else{
+        corpoStatus = false
       }
     }
 
@@ -41,14 +41,23 @@
 
 
 <section class="flex justify-center">
-  <form class="max-w-6xl justify-center w-full bg-gray-200 grid gap-4 mt-3 pt-3 pb-3" id="forms" onsubmit={submitForms}>
+  <form class="max-w-6xl justify-center w-full bg-gray-200 grid gap-4 mt-3 pt-3 pb-3" id="forms" onsubmit={submitForms} transition:fade>
     <label for="title">Title</label>
     <input bind:value={title} type="text" id="title" class="bg-gray-500 p-1" onblur={validationTitle}>
+    {#if titleStatus}
+      <span class="text-red-500 italic m-auto w-full">Titulo tem que ter mais que 5 caracteres</span>
+    {/if}
     <label for="body">Body</label>
-    <textarea bind:value={corpo} id="corpo" class="w-2xs h-60 bg-gray-500 mb-2 text-white rounded-ss-sm p-1"></textarea>
+    <textarea bind:value={corpo} onblur={validationBody} id="corpo" class="w-2xs h-60 bg-gray-500 mb-2 text-white rounded-ss-sm p-1"></textarea>
+    {#if corpoStatus}
+      <span class="text-red-500 italic m-auto w-full">Corpo tem que ter mais que 20 caracteres</span>
+    {/if}
     <button disabled={(!corpo) || corpo.length <= 20 || title.length <= 5 || (!title)} type="submit" class="bg-violet-500 text-white p-1 hover:bg-zinc-500 hover:cursor-pointer">
       Publicar Post
     </button>
+    {#if formsStatus}
+      <span class="bg-lime-500 w-26 p-1 rounded-2xl m-auto text-white transition-shadow mt-4 mb-4">Post Criado</span>
+    {/if}
   </form>
 </section>
 
