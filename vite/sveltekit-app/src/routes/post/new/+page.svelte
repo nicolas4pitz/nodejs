@@ -43,7 +43,7 @@
 
 
 <section class="flex justify-center">
-  <form class="max-w-6xl justify-center w-full bg-gray-200 grid gap-4 mt-3 pt-3 pb-3" id="forms" onsubmit={submitForms} transition:fade>
+  <form method="POST" class="max-w-6xl justify-center w-full bg-gray-200 grid gap-4 mt-3 pt-3 pb-3" id="forms" onsubmit={submitForms} transition:fade>
     <label for="title">Title</label>
     <input bind:value={title} type="text" id="title" class="bg-gray-500 p-1" placeholder="Digite o Titulo do Post" onblur={validationTitle}>
     {#if titleStatus}
@@ -54,9 +54,11 @@
     {#if corpoStatus}
       <span class="text-red-500 italic m-auto w-full">Corpo tem que ter mais que 20 caracteres</span>
     {/if}
+
     <button disabled={(!corpo) || corpo.length <= 20 || title.length <= 5 || (!title)} type="submit" class="bg-violet-500 text-white p-1 hover:bg-zinc-500 hover:cursor-pointer">
       Publicar Post
     </button>
+
     {#if formsStatus}
       <span class="bg-lime-500 w-26 p-1 rounded-2xl m-auto text-white transition-shadow mt-4 mb-4">Post Criado</span>
     {/if}
