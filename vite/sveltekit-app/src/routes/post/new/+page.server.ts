@@ -5,10 +5,19 @@ export const load = (async () => {
 }) satisfies PageServerLoad;
 
 export const actions = {
-  default: async ({ cookies, request}) => {
+  default: async ({request}) => {
     const data = await request.formData();
   
-    console.log("foi")
+    const title = data.get("title")
+    const body = data.get("corpo")
+
+    //console.log("Titulo: " + title)
+    //console.log("Corpo" + body)
+
+    for(const [key, value] of data.entries()){
+      console.log(`${key}: ${value}`)
+    }
+
     //return data;
   }
 }
