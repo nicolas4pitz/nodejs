@@ -1,4 +1,5 @@
 import type { PageServerLoad } from './$types';
+import { error } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ params }) => {
     const postId = params.slug;
@@ -7,7 +8,7 @@ export const load: PageServerLoad = async ({ params }) => {
     
     
     if (!response.ok) {
-        throw new Error(`Post não encontrado`);
+        error(404)
     }
     
     const post = await response.json();
