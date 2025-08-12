@@ -1,6 +1,7 @@
 <script>
 
   import State from "$lib/reactivity/state.svelte";
+  import Deepstate from "$lib/reactivity/deepstate.svelte";
 
 
 </script>
@@ -12,6 +13,12 @@
 
 <div>
   <State/>
+</div>
+
+<h2>Section 2: Estado Profundo (Deep State)</h2>
+
+<div>
+  <Deepstate />
 </div>
 
 
