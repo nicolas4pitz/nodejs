@@ -2,6 +2,7 @@
 
   import State from "$lib/reactivity/state.svelte";
   import Deepstate from "$lib/reactivity/deepstate.svelte";
+  import Derivadstate from "$lib/reactivity/derivadstate.svelte";
 
 
 </script>
@@ -19,6 +20,12 @@
 
 <div>
   <Deepstate />
+</div>
+
+<h2>Section 3: Estado Derivado (Derivated State)</h2>
+
+<div>
+ <Derivadstate />
 </div>
 
 
