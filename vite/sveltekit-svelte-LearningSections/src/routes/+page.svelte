@@ -3,7 +3,7 @@
   import State from "$lib/reactivity/state.svelte";
   import Deepstate from "$lib/reactivity/deepstate.svelte";
   import Derivadstate from "$lib/reactivity/derivadstate.svelte";
-
+  import Inspectstate from "$lib/reactivity/inspectstate.svelte";
 
 </script>
 
@@ -12,7 +12,7 @@
 <State/>
 <Deepstate />
 <Derivadstate />
-
+<Inspectstate/>
 
 
 
