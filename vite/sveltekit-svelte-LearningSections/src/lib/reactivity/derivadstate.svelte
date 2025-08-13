@@ -13,10 +13,25 @@ function acionar(){
 </script>
 
 
-<p>Count: {count}</p>
-<p>Derivado se é par: {ePar}</p>
-<button onclick={acionar} class="p-2 bg-zinc-700 text-white rounded-2xl">Contar</button>
+<h2>Section 3: Estado Derivado (Derivated State)</h2>
+
+<div>
+  <p>Count: {count}</p>
+  <p>Derivado se é par: {ePar}</p>
+  <button onclick={acionar} class="p-2 bg-zinc-700 text-white rounded-2xl">Contar</button>
+</div>
 
 <style>
+  h2{
+    color: black;
+    font: normal small-caps bold 34px/1.5 Arial, sans-serif;
+    padding: 2px;
+  }
 
+  div{
+    box-sizing: border-box;
+    background-color: chocolate;
+    margin: 10px;
+    padding: 12px;
+  }
 </style>

@@ -9,10 +9,29 @@
 </script>
 
 
-<button onclick={increment} class="bg-zinc-600 rounded-2xl p-3 text-white">
-  Incrementar {count}
-</button>
+<h2>Section 1: Estado (State)</h2>
+
+<div>
+  <button onclick={increment} class="bg-zinc-600 rounded-2xl p-3 text-white">
+    Incrementar {count}
+  </button>
+</div>
 
 
 
-<style></style>
+
+<style>
+
+  h2{
+    color: black;
+    font: normal small-caps bold 34px/1.5 Arial, sans-serif;
+    padding: 2px;
+  }
+
+  div{
+    box-sizing: border-box;
+    background-color: chocolate;
+    margin: 10px;
+    padding: 12px;
+  }
+</style>

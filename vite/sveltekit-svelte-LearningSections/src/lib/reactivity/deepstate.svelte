@@ -14,7 +14,9 @@
 
 </script>
 
-<section class="gap-7">
+<h2>Section 2: Estado Profundo (Deep State)</h2>
+
+<div class="gap-7 principal">
   <div>
     <h3>Usuario</h3>
     <p>Nome: {user.name}</p>
@@ -32,7 +34,7 @@
       Adicionar Item
     </button>
   </div>
-</section>
+</div>
 
 
 
@@ -41,8 +43,19 @@
 
 <style>
 
-  section{
+  h2{
+    color: black;
+    font: normal small-caps bold 34px/1.5 Arial, sans-serif;
+    padding: 2px;
+  }
+
+  .principal{
     display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    background-color: chocolate;
+    margin: 10px;
+    padding: 12px;
   }
 
 </style>
