@@ -4,6 +4,7 @@
   import Deepstate from "$lib/reactivity/deepstate.svelte";
   import Derivadstate from "$lib/reactivity/derivadstate.svelte";
   import Inspectstate from "$lib/reactivity/inspectstate.svelte";
+  import Effectsstate from "$lib/reactivity/effectsstate.svelte";
 
 </script>
 
@@ -13,7 +14,7 @@
 <Deepstate />
 <Derivadstate />
 <Inspectstate/>
-
+<Effectsstate/>
 
 
 
