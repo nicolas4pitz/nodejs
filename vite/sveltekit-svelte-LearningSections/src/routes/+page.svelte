@@ -11,6 +11,12 @@
 
   import Declarationprops from "$lib/props/declarationprops.svelte";
   import Defaultvalues from "$lib/props/defaultvalues.svelte";
+  import Spreadprops from "$lib/props/spreadprops.svelte";
+  let userSpread = {
+    nome: "Bob",
+    idade: 21,
+    location: "Brasilia"
+  } //Espalha os respectivos campos com cada campo com nome similar
 
 </script>
 
@@ -29,7 +35,7 @@
 <h2>Parte 2:</h2>
 <Declarationprops nome={myNameUniversal} {idade}/>
 <Defaultvalues nome={myNameUniversal}/>
-
+<Spreadprops {...userSpread}/>
 
 <style>
 
