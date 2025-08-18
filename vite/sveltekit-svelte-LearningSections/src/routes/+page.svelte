@@ -10,7 +10,7 @@
   let idade = $state(20)
 
   import Declarationprops from "$lib/props/declarationprops.svelte";
-
+  import Defaultvalues from "$lib/props/defaultvalues.svelte";
 
 </script>
 
@@ -24,9 +24,11 @@
 <Effectsstate />
 <Universalreactivy nome={myNameUniversal}/>
 
+<hr>
 <h1>Props</h1>
 <h2>Parte 2:</h2>
 <Declarationprops nome={myNameUniversal} {idade}/>
+<Defaultvalues nome={myNameUniversal}/>
 
 
 <style>
@@ -36,9 +38,10 @@
   }
 
   h1{
-    color: black;
+    color: rgb(124, 20, 20);
     font-size: 36px;
     font-weight: bold;
+    margin-top: 20px;
   }
 
   h2{
