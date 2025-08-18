@@ -7,6 +7,10 @@
   import Effectsstate from "$lib/reactivity/effectsstate.svelte";
   import Universalreactivy from "$lib/reactivity/universalreactivy.svelte";
   let myNameUniversal = $state("Bob");
+  let idade = $state(20)
+
+  import Declarationprops from "$lib/props/declarationprops.svelte";
+
 
 </script>
 
@@ -17,8 +21,12 @@
 <Deepstate />
 <Derivadstate />
 <Inspectstate/>
-<Effectsstate/>
+<Effectsstate />
 <Universalreactivy nome={myNameUniversal}/>
+
+<h1>Props</h1>
+<h2>Parte 2:</h2>
+<Declarationprops nome={myNameUniversal} {idade}/>
 
 
 <style>
