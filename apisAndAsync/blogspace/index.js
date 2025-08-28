@@ -1,41 +1,49 @@
-fetch("https://apis.scrimba.com/jsonplaceholder/posts")
+let postsArray = []
+const titleInput = document.getElementById("post-title")
+const bodyInput = document.getElementById("post-body")
+const form = document.getElementById("new-post")
+
+function renderPosts() {
+    let html = ""
+    for (let post of postsArray) {
+        html += `
+            <h3>${post.title}</h3>
+            <p>${post.body}</p>
+            <hr />
+        `
+    }
+    document.getElementById("blog-list").innerHTML = html
+}
+
+fetch("https://jsonplaceholder.typicode.com/posts")
     .then(res => res.json())
     .then(data => {
-        const postsArr = data.slice(0, 5)
-        let html = ""
-        for (let post of postsArr) {
-            html += `
-                <h3>${post.title}</h3>
-                <p>${post.body}</p>
-                <hr />
-            `
-        }
-        document.getElementById("blog-list").innerHTML = html
+        postsArray = data.slice(0, 5)
+        renderPosts()
     })
 
-/**
- Challenge:
- 
- * Listen for the "submit" event on the form (which will happen when the button is clicked)
-    * (Don't forget to preventDefault on the form so it doesn't refresh your page. Google "form preventDefault" if you're not sure what I'm talking about)
- * Combine the title value and body value into an object (with a "title" property and "body" property)
- * Log the object to the console
-
-*/
-
-let buttonEl = document.querySelector("button")
-
-
-buttonEl.addEventListener("click", e => {
+form.addEventListener("submit", function(e) {
     e.preventDefault()
-        
-    let titleEl = document.getElementById("post-title")
-    let bodyEl = document.getElementById("post-body")
-    
-    let obj = {
-        title: titleEl.value,
-        body: bodyEl.innerText.value
+    const postTitle = titleInput.value
+    const postBody = bodyInput.value
+    const data = {
+        title: postTitle,
+        body: postBody
     }
     
-    console.log(obj)
+    const options = {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    
+    fetch("https://jsonplaceholder.typicode.com/posts", options)
+        .then(res => res.json())
+        .then(post => {
+            postsArray.unshift(post)
+            renderPosts()
+            form.reset()
+        })
 })
